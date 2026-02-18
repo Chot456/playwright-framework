@@ -20,6 +20,9 @@ export class DashboardPage {
         this.logger.info("Assert success flash message");
         await expect(this.flashMsg).toContainText("Logged In Successfully");
 
+        this.logger.info("Assert verified URL link");
+        await expect(this.page).toHaveURL('https://practicetestautomation.com/logged-in-successfully/'); 
+
         this.logger.info("Assert logout button visible");
         await expect(this.logoutBtn).toBeVisible();
     }

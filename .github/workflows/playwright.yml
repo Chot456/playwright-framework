@@ -32,7 +32,7 @@ jobs:
           echo "VALID_PASSWORD=${{ secrets.VALID_PASSWORD }}" >> .env
 
       - name: Run Playwright tests Smoke
-        run: npx playwright test -g "@smoke" --headed=false
+        run: npx playwright test -g "@smoke"
         env:
           CI: true
           BASE_URL: ${{ secrets.BASE_URL }}

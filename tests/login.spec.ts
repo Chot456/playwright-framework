@@ -29,7 +29,7 @@ test.describe("Login POC", () => {
         }
     });
 
-    test("Invalid username login shows error", async ({ page }, testInfo) => {
+    test("Invalid username login shows error @smoke", async ({ page }, testInfo) => {
         const logger = createLogger(testInfo);
         const login = new LoginPage(page, logger);
 
@@ -51,7 +51,7 @@ test.describe("Login POC", () => {
         }
     });
 
-    test("Invalid password login shows error", async ({ page }, testInfo) => {
+    test("Invalid password login shows error @smoke", async ({ page }, testInfo) => {
         const logger = createLogger(testInfo);
         const login = new LoginPage(page, logger);
 

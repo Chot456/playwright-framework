@@ -38,7 +38,7 @@ jobs:
           echo "API_BASE_URL=${{ secrets.API_BASE_URL }}" >> .env
 
       - name: Run Playwright tests Smoke
-        run: npx playwright test -g "@smoke"
+        run: npx playwright test -g "@smoke|@api"
         env:
           CI: true
           BASE_URL: ${{ secrets.BASE_URL }}

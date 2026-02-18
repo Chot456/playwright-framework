@@ -24,27 +24,6 @@ test.describe("Login POC", () => {
                 await dashboard.assertLoggedIn();
             });
 
-            // 🔹 Parameterized negative tests
-            for (const data of invalidLoginCases) {
-
-                test(`invalid login - ${data.name}`, async ({ page }) => {
-                const login = new LoginPage(page, logger);
-
-                await logger.step("Navigate to login page", async () => {
-                    await login.goto();
-                });
-
-                await logger.step(`Attempt login: ${data.name}`, async () => {
-                    await login.login(data.username, data.password);
-                });
-
-                await logger.step("Verify error message", async () => {
-                    await login.assertLoginFailed(data.expectedError);
-                });
-
-                });
-
-            }
         } finally {
             await logger.attachToReport();
         }

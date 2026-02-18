@@ -1,102 +1,73 @@
-**Playwright Login Automation POC**
+**Playwright Automation Framework (UI + API + CI)**
 📌 Overview
 
-This repository contains a UI automation framework built using:
+* This repository demonstrates a production-style QA Automation Framework built using:
 
-Playwright
+* Playwright + TypeScript
 
-TypeScript
+* Page Object Model (POM)
 
-Page Object Model (POM)
+* API + UI testing in one framework
 
-Environment configuration
+* Data setup via API
 
-Session reuse (storageState)
+* Environment support (QA / UAT)
 
-GitHub Actions CI
+* GitHub Actions CI
 
-Multi-format reporting (HTML + JUnit + Allure)
+* Live HTML test report (GitHub Pages) (file:///C:/Users/Neo/Desktop/SoftwareDevelopment/PlaywrightAutomationTest/playwright-framework/playwright-report/index.html)
 
-The goal of this POC is to demonstrate a scalable, maintainable, and CI-ready UI automation approach suitable for enterprise-level test automation.
+* Structured logging
 
+* The goal is to show scalable, reliable, and maintainable automation suitable for real-world projects.
+<br>
 
-**Design Principles**
+**🧠 Test Strategy**<br>
+Layer	Purpose
 
-Maintainability → Page Object Model
+API Tests	Validate business logic fast & stable
 
-Security → Environment variables (no hardcoded credentials)
+UI Smoke Tests	Validate critical user journeys
 
-Speed → Storage state authentication reuse
+UI Regression	Nightly validation
 
-Scalability → Parallel execution ready
+API Setup	Create data before UI tests
+<br>
 
-CI Ready → GitHub Actions integration
+**Principle:**
+<p>UI tests verify behavior.</p>
+<p>API tests verify correctness.</p>
+<br>
 
-Traceability → Multi-format reports
-
-
-**Installation**
+**⚙️ Installation**<br>
 git clone <repo-url>
-cd pw-login-poc
+cd playwright-framework
 npm install
 npx playwright install
+<br>
 
+**🔐 Environment Setup**<br>
 
-**Environment Variables**
+Create env file:
 
-Create .env
+.env.qa
+BASE_URL=https://qa.app.com
+VALID_USERNAME=qa_user
+VALID_PASSWORD=qa_pass
+API_BASE_URL=https://qa.api.com
+<br>
 
-BASE_URL=https://the-internet.herokuapp.com
-VALID_USERNAME=tomsmith
-VALID_PASSWORD=SuperSecretPassword!
-INVALID_USERNAME=wronguser
-INVALID_PASSWORD=wrongpass
+**▶️ Run Tests**
 
+Run UI + API
 
-**Run Tests**
-Run all tests
-npm test
-Headed mode (for debugging)
-npm run test:headed
-UI mode (Playwright Inspector)
-npm run test:ui
+TEST_ENV=qa npx playwright test
 
+Run only API
 
-**Reporting**
-HTML Report
-npm run report
-Allure Report
-npm run allure:generate
-npm run allure:open
+npx playwright test tests/api
 
-
-**CI Pipeline (GitHub Actions)**
-
-The framework runs automatically on:
-
-Push to main
-
-Pull Requests
-
-Pipeline Steps:
-
-Install dependencies
-
-Install browsers
-
-Inject environment secrets
-
-Generate session state
-
-Execute tests headless
-
-Publish HTML + JUnit + Allure reports
-
-Artifacts available in GitHub Actions → Artifacts
-
-
-**Test Tagging**
-
-Run only smoke tests:
+Run smoke tests
 
 npx playwright test -g "@smoke"
+

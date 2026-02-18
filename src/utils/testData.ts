@@ -18,19 +18,19 @@ export const invalidLoginCases = [
   },
   {
     name: "wrong password",
-    username: "tomsmith",
+    username: "student",
     password: "wrong_pass",
     expectedError: "Your password is invalid!"
   },
   {
     name: "empty username",
     username: "",
-    password: "SuperSecretPassword!",
+    password: "Password123",
     expectedError: "Your username is invalid!"
   },
   {
     name: "empty password",
-    username: "tomsmith",
+    username: "student",
     password: "",
     expectedError: "Your password is invalid!"
   }

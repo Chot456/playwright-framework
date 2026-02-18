@@ -30,8 +30,12 @@ export class LoginPage {
         this.logger.info("Fill password");
         await this.password.fill(pass);
 
-        this.logger.info("Click login button");
-        await this.LoginBtn.click();
+        this.logger.info("Submit login and wait for result");
+        await Promise.all([
+            this.page.waitForLoadState("networkidle"),
+            await this.LoginBtn.click()
+        ]);
+        
     }
 
     async assertLoginFailed(message: string) {

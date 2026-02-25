@@ -15,7 +15,7 @@
 
 * GitHub Actions CI
 
-* Live HTML test report (GitHub Pages) (file:///C:/Users/Neo/Desktop/SoftwareDevelopment/PlaywrightAutomationTest/playwright-framework/playwright-report/index.html)
+* Live HTML test report (GitHub Pages) (https://chot456.github.io/playwright-framework/playwright-report/)
 
 * Structured logging
 

@@ -35,7 +35,9 @@ jobs:
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
           echo "VALID_USERNAME=${{ secrets.VALID_USERNAME }}" >> .env
           echo "VALID_PASSWORD=${{ secrets.VALID_PASSWORD }}" >> .env
-          echo "API_BASE_URL=${{ secrets.API_BASE_URL }}" >> .env
+          echo "API_LOGIN_BASE_URL=${{ secrets.API_LOGIN_BASE_URL }}" >> .env
+          echo "API_LOGIN_VALID_USERNAME=${{ secrets.API_LOGIN_VALID_USERNAME }}" >> .env
+          echo "API_LOGIN_VALID_PASSWORD=${{ secrets.API_LOGIN_VALID_PASSWORD }}" >> .env
 
       - name: Run Playwright tests Smoke
         run: npx playwright test -g "@smoke|@api"
@@ -44,7 +46,9 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }}
           VALID_USERNAME: ${{ secrets.VALID_USERNAME }}
           VALID_PASSWORD: ${{ secrets.VALID_PASSWORD }}
-          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          API_LOGIN_BASE_URL: ${{ secrets.API_LOGIN_BASE_URL }}
+          API_LOGIN_VALID_USERNAME: ${{ secrets.API_LOGIN_VALID_USERNAME }}
+          API_LOGIN_VALID_PASSWORD: ${{ secrets.API_LOGIN_VALID_PASSWORD }}
 
       - name: Upload Playwright Report
         if: always()

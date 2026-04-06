@@ -1,17 +1,11 @@
 import { test } from "@playwright/test";
-import { LoginPage } from "../src/pages/LoginPage";
-import { DashboardPage } from "../src/pages/DashboardPage";
-import { invalidLoginCases } from "../src/utils/testData";
-import { createLogger } from "../src/utils/logger";
+import { LoginPage } from "../../src/pages/LoginPage";
+import { DashboardPage } from "../../src/pages/DashboardPage";
+import { invalidLoginCases } from "../../src/utils/testUIDataFactory";
+import { createLogger } from "../../src/utils/logger";
+import { mustGetEnv } from "../../src/utils/env"; // <-- Reuse env utility
 
-// Optional: safer env getter (recommended)
-const mustGetEnv = (name: string) => {
-  const v = process.env[name];
-  if (!v) throw new Error(`Missing required env var: ${name}`);
-  return v;
-};
-
-test.describe("Login POC", () => {
+test.describe("Test Login", () => {
   test("Valid login @smoke", async ({ page }, testInfo) => {
     const logger = createLogger(testInfo);
     const login = new LoginPage(page, logger);

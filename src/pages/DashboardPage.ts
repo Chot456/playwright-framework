@@ -18,11 +18,6 @@ export class DashboardPage {
 
 
     async assertLoggedIn() {
-        this.logger.info("Wait for user profile API to complete");
-        // await this.page.waitForResponse(resp =>
-        //     resp.url().includes('/api/me') && resp.status() === 200
-        // );
-
         this.logger.info("Assert verified URL link");
         await expect(this.page).toHaveURL('https://practicetestautomation.com/logged-in-successfully/')
 

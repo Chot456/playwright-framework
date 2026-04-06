@@ -65,3 +65,17 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: playwright-report
           destination_dir: playwright-report
+
+      - name: Cloudflare Protection Bypass Check
+        run: |
+          const { body } = await authClient.login(
+            loginPayload().username,
+            loginPayload().password
+          );
+
+          if (typeof body === "string" && body.includes("<html")) {
+            test.skip("Blocked by Cloudflare or similar protection in CI");
+          }
+
+          expect(body).toHaveProperty("token");
+          expect(typeof body.token).toBe("string");

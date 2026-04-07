@@ -2,7 +2,7 @@ import { test } from "../fixtures/authFixtures";
 import { expect } from "@playwright/test";
 import { loginPayload } from "../../src/utils/testAPIDataFactory";
 
-test.describe("@api Login API", () => {
+test.describe("@api @smoke Login API", () => {
   test("Valid login returns token", async ({ authClient }) => {
     const { body } = await authClient.login(
       loginPayload().username,

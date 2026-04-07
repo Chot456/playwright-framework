@@ -70,4 +70,22 @@ npx playwright test tests/api
 Run smoke tests
 
 npx playwright test -g "@smoke"
+## 🚀 Running Smoke Tests
+
+You can run smoke tests (tests tagged with `@smoke`) for all, UI only, or API only:
+
+| Command              | Description                       |
+|----------------------|-----------------------------------|
+| `npm run smoke`      | Run all smoke tests (UI & API)    |
+| `npm run smoke:ui`   | Run only UI smoke tests           |
+| `npm run smoke:api`  | Run only API smoke tests          |
+
+These scripts will:
+- Clean previous Allure results
+- Run only tests tagged with `@smoke` in the specified scope
+
+**Example:**
+```sh
+npm run smoke:ui
+```
 

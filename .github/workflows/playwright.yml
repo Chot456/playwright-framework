@@ -50,14 +50,8 @@ jobs:
           API_LOGIN_VALID_USERNAME: ${{ secrets.API_LOGIN_VALID_USERNAME }}
           API_LOGIN_VALID_PASSWORD: ${{ secrets.API_LOGIN_VALID_PASSWORD }}
 
-      - name: List Allure Results
-        run: ls -l allure-results || dir allure-results
-
       - name: Generate Allure Report
         run: npx allure generate allure-results --clean -o allure-report
-
-      - name: List Allure Report
-        run: ls -l allure-report || dir allure-report
 
       - name: Upload Allure Report
         if: always()
